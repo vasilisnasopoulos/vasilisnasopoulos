@@ -17,10 +17,19 @@ reviewable evidence layer:
 > **Start here:** default model + proofs → **proofs** repo.
 > Strict single-slot admission → **spec** repo. They are different variants on purpose.
 
+## Read this first: formal slices, not a full engine
+
+These repos publish **independent formal slices** of the Vortex DSE stack — one
+layer per repository, each with its own assumptions. They are **not** a composed
+end-to-end proof and **not** the production C code.
+
+**[→ SLICES.md](SLICES.md)** — what is public, what is private, what you can and
+cannot conclude from the bundle.
+
 ## Scope
 
-- Machine-checked and model-checked **slices** of the protocol — not a full public engine.
-- Loss-under-reconcile specs exist in private staging; not all are published yet.
+- Machine-checked and model-checked **slices** only — not a full public engine.
+- Loss-under-reconcile and cross-slot composition specs are **not** on GitHub yet.
 - Questions about private implementation: open an issue on any public repo.
 
 ## Topics
