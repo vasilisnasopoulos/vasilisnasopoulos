@@ -1,38 +1,67 @@
-# Vasilis Nasopoulos
+# Vortex DSE — Merkle Agreement
 
-Formal methods and systems research around **Vortex DSE** — deterministic slot
-engineering for distributed admission, ordering, and agreement.
+> **Public verification bundle:**
+> [Proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) · [Strict spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec) · [Merkle agreement](https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement)
 
-## Public formal surface
+TLA+ specification for the **per-slot input-set agreement** layer of Vortex DSE. After C-slot admission, correct live nodes run a slot-local barrier and commit the same input set for that slot.
 
-Production C and benchmarks are **private**. These three repos are the public,
-reviewable evidence layer — **parts of one machine**, each formally checked on
-its own:
+## Why this repo matters
 
-| Repo | Role |
-|------|------|
-| [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) | Default late-tolerant C-slot model — **TLAPS** proofs |
-| [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec) | **Strict** admission variant — TLC + JS reference |
-| [vortex-merkle-agreement](https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement) | Per-slot **Merkle agreement** on the admitted input set |
+This repo is for people who want the agreement layer, not just the admission rule.
+It shows how nodes converge on one committed set per slot under the declared assumptions.
 
-> **Start here:** default model + proofs → **proofs** repo.
-> Strict single-slot admission → **spec** repo. They are different variants on purpose.
+## Position in the public verification bundle
 
-## Read this first: parts of one machine, not the whole engine
+| Repository | Role | Verification status |
+|---|---|---|
+| [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) | Late-tolerant C-slot admission; deductive safety proofs | TLAPS: `[]TypeInvariant`, `[]NoFutureAdmission`; all 194 obligations proved |
+| [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec) | Strict C-slot admission, clock skew, Byzantine timestamp/origin spoofing, executable reference | TLC bounded checks; JavaScript reference scenarios |
+| **vortex-merkle-agreement** ← you are here | Per-slot input-set agreement: Freeze → Reconcile → Commit | TLC + Apalache bounded checks under declared assumptions |
 
-These repos are **verified components of the same Vortex DSE stack** — admission,
-agreement, and variants — each checked on its own. They are **not** unrelated
-specs, and **not** the full production engine or one composed end-to-end proof.
+## One-sentence summary
 
-**[→ SLICES.md](SLICES.md)** — how the parts connect, what is missing, what you
-can and cannot conclude.
+Freeze admission for the slot, reconcile the node views, confirm equality by Merkle/hash roots, then commit the same input set everywhere.
 
-## Scope
+## Protocol shape
 
-- Machine-checked and model-checked **parts** only — not a full public engine.
-- Loss-under-reconcile and cross-slot composition specs are **not** on GitHub yet.
-- Questions about private implementation: open an issue on any public repo.
+```text
+C-slot admission
+    ↓
+Local processed set
+    ↓
+Freeze admission for slot k
+    ↓
+Reconcile node views
+    ↓
+Merkle/hash equality confirms identical set
+    ↓
+Commit slot-final input set
+```
 
-## Topics
+## Headline property
 
-`formal-methods` · `tla+` · `distributed-systems` · `consensus`
+The headline property is `MerkleAgreement`:
+
+> any two committed correct live nodes hold an identical `committed_set` for the current slot.
+
+## Reproduce
+
+### TLC
+
+```sh
+./run_tlc.sh /path/to/tla2tools.jar
+```
+
+### Apalache
+
+```sh
+APALACHE_BIN=/path/to/apalache-mc ./run_apalache.sh
+```
+
+## Suggested reviewer path
+
+1. Read the one-sentence summary.
+2. Inspect the claims matrix and assumptions.
+3. Check the phase transition model: open, frozen, committed.
+4. Run TLC and Apalache.
+5. Continue to the admission repos to see what this layer depends on.
