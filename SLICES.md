@@ -1,11 +1,8 @@
 # Vortex DSE — public formal slices
 
-Vortex DSE is **one machine**: a layered protocol stack (admission → agreement →
-recovery). The public GitHub repos are **parts of that same machine** — not
-separate projects. Each repo publishes one layer, formally checked on its own.
+Vortex DSE is **one machine**: a layered protocol stack (admission → agreement → recovery). The public GitHub repos are **parts of that same machine** — not separate projects. Each repo publishes one layer, formally checked on its own.
 
-What we do **not** publish today: the whole machine at once (production C, every
-layer, and one composed end-to-end theorem wiring all parts together).
+What we do **not** publish today: the whole machine at once (production C, every layer, and one composed end-to-end theorem wiring all parts together).
 
 ## The distinction that matters
 
@@ -16,9 +13,7 @@ layer, and one composed end-to-end theorem wiring all parts together).
 | **Checked in isolation** | Yes. Each repo has its own TLA+ `Spec` and its own proof or model-check run. |
 | **Formally composed together on GitHub** | Not yet. No published refinement imports slice A into slice B under one theorem. |
 
-**Analogy:** you are publishing inspected **components** of one engine (gearbox,
-valve, coupling) — not claiming the full assembled engine is proved in one go,
-but also **not** claiming the components belong to different engines.
+**Analogy:** you are publishing inspected **components** of one engine (gearbox, valve, coupling) — not claiming the full assembled engine is proved in one go, but also **not** claiming the components belong to different engines.
 
 ## Mental model
 
@@ -67,20 +62,18 @@ The repos are **layers of the same per-slot pipeline**, not unrelated specs:
 | Any slice → production C | Empirical target (private) | **No** — code↔spec refinement not claimed |
 
 **Short version:** each public repo is a **verified part of one machine**.
-The parts **connect in order** (admission → agreement → …). What is still open
-is a **single composed proof** that imports one `Spec` into the next.
+The parts **connect in order** (admission → agreement → …). What is still open is a **single composed proof** that imports one `Spec` into the next.
 
-The **strict** spec repo is another **part of the admission layer** (a variant +
-adversary model), not the pipe from proofs to merkle. For the main stack:
+The **strict** spec repo is another **part of the admission layer** (a variant + adversary model), not the pipe from proofs to merkle. For the main stack:
 **proofs** (default admission) → **merkle** (agreement).
 
 ## Public slice map
 
 | Part | Question it answers | Public repo | Verification |
 |------|---------------------|-------------|--------------|
-| Default C-slot admission | Can a node admit a future-dated message? (default model) | [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) | **TLAPS** (deductive, unbounded over parameters) |
-| Strict C-slot + adversary | How does strict same-slot admission behave? Clock skew / spoofing? | [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec) | **TLC** + JS reference (bounded instances) |
-| Baseline per-slot agreement | After admission, do nodes commit the same input set per slot? (ideal network) | [vortex-merkle-agreement](https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement) | **TLC** + Apalache (bounded instances) |
+| Default C-slot admission | Can a node admit a future-dated message? (default model) | [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) | **TLAPS** (deductive safety proofs) |
+| Strict C-slot + adversary | How does strict same-slot admission behave? Clock skew / spoofing? | [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec) | **TLC** + JS reference |
+| Baseline per-slot agreement | After admission, do nodes commit the same input set per slot? (ideal network) | [vortex-merkle-agreement](https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement) | **TLC** + Apalache |
 
 ## Not public (do not infer from the repos above)
 
@@ -94,14 +87,9 @@ adversary model), not the pipe from proofs to merkle. For the main stack:
 
 ## What reviewers can and cannot conclude
 
-**Can conclude (from a given repo):** that **part of the machine** satisfies the
-properties in that repo’s claims matrix, under that part’s assumptions.
+**Can conclude (from a given repo):** that **part of the machine** satisfies the properties in that repo’s claims matrix, under that part’s assumptions.
 
-**Cannot conclude:** the **fully assembled machine** is verified end-to-end; that
-unpublished parts are proved here; that a property proved on part A automatically
-holds on the assembled system without a composition proof; or that the strict
-spec repo equals the default production admission rule (see
-[proofs vs spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs#declared-limits)).
+**Cannot conclude:** the **fully assembled machine** is verified end-to-end; that unpublished parts are proved here; that a property proved on part A automatically holds on the assembled system without a composition proof; or that the strict spec repo equals the default production admission rule (see [proofs vs spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs#declared-limits)).
 
 ## Suggested reading order
 
