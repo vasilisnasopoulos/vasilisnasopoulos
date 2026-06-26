@@ -2,6 +2,21 @@
 
 Formal methods and systems research around **Vortex DSE** — deterministic slot engineering for distributed admission, ordering, and agreement.
 
+## Unified verification infrastructure
+
+![TLAPS](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-proofs.yml/badge.svg)
+![TLC](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-tlc.yml/badge.svg)
+![Apalache](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-apalache.yml/badge.svg)
+
+This hub now hosts a single formal verification entry point across all three public repositories.
+
+### Start here
+
+- [ARCHITECTURE.md](ARCHITECTURE.md) — unified system map and CI topology
+- [PROOF_STRUCTURE.md](PROOF_STRUCTURE.md) — proof and model-check dependency flow
+- [REPRODUCTION.md](REPRODUCTION.md) — canonical local reproduction commands
+- [proof-dependencies.json](proof-dependencies.json) — machine-readable dependency graph
+
 ## Public formal surface
 
 Production C and benchmarks are **private**. These public repositories are the reviewable evidence layer — **parts of one machine**, each checked on its own:
@@ -25,10 +40,13 @@ Production C and benchmarks are **private**. These public repositories are the r
 
 ## Recommended reading order
 
-1. [SLICES.md](SLICES.md) — how the parts connect and what is intentionally missing.
-2. [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) — unbounded TLAPS safety proofs.
-3. [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec) — strict same-slot admission plus executable reference.
-4. [vortex-merkle-agreement](https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement) — per-slot committed-set agreement.
+1. [ARCHITECTURE.md](ARCHITECTURE.md)
+2. [PROOF_STRUCTURE.md](PROOF_STRUCTURE.md)
+3. [REPRODUCTION.md](REPRODUCTION.md)
+4. [SLICES.md](SLICES.md)
+5. [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs)
+6. [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec)
+7. [vortex-merkle-agreement](https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement)
 
 ## Topics
 

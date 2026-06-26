@@ -1,0 +1,9 @@
+[submodule "formal/vortex-dse-cslot-proofs"]
+	path = formal/vortex-dse-cslot-proofs
+	url = https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs.git
+[submodule "formal/vortex-dse-cslot-spec"]
+	path = formal/vortex-dse-cslot-spec
+	url = https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec.git
+[submodule "formal/vortex-merkle-agreement"]
+	path = formal/vortex-merkle-agreement
+	url = https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement.git

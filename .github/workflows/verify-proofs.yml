@@ -1,0 +1,34 @@
+name: Verify TLAPS Proofs
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  tlaps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout hub + submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Verify admission safety proofs
+        run: |
+          docker run --rm \
+            -v "$PWD":/workspace \
+            -w /workspace/formal/vortex-dse-cslot-proofs \
+            tlaplus/tlaplus:latest \
+            tlapm --toolbox 0 0 specs/Vortex_DSE_CSlot_Proofs.tla
+
+      - name: Verify exactly-once proof
+        run: |
+          docker run --rm \
+            -v "$PWD":/workspace \
+            -w /workspace/formal/vortex-dse-cslot-proofs \
+            tlaplus/tlaplus:latest \
+            tlapm --toolbox 0 0 specs/Vortex_DSE_CSlot_ExactlyOnce_Proof.tla

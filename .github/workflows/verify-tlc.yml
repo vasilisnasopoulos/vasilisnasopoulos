@@ -1,0 +1,45 @@
+name: Verify TLC Models
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  tlc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout hub + submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Download tla2tools.jar
+        run: |
+          curl -fsSL -o tla2tools.jar \
+            https://github.com/tlaplus/tlaplus/releases/latest/download/tla2tools.jar
+
+      - name: Run TLC for strict admission repo
+        run: |
+          java -jar tla2tools.jar -workers auto \
+            -config formal/vortex-dse-cslot-spec/specs/Vortex_DSE_CSlot_tiny.cfg \
+            formal/vortex-dse-cslot-spec/specs/Vortex_DSE_CSlot.tla
+
+          java -jar tla2tools.jar -workers auto \
+            -config formal/vortex-dse-cslot-spec/specs/Vortex_DSE_CSlot_Skew_tiny.cfg \
+            formal/vortex-dse-cslot-spec/specs/Vortex_DSE_CSlot_Skew.tla
+
+      - name: Run TLC for merkle agreement repo
+        working-directory: formal/vortex-merkle-agreement
+        run: |
+          chmod +x ./run_tlc.sh
+          ./run_tlc.sh "$GITHUB_WORKSPACE/tla2tools.jar"
