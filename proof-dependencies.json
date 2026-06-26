@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0.0",
+  "last_updated": "2026-06-26",
+  "hub_repository": "vasilisnasopoulos-stack/vasilisnasopoulos-stack",
+  "repositories": {
+    "vortex-dse-cslot-proofs": {
+      "path": "formal/vortex-dse-cslot-proofs",
+      "verification": ["TLAPS"],
+      "status": "active",
+      "theorems": [
+        {
+          "id": "proofs.TypeInvariant",
+          "module": "specs/Vortex_DSE_CSlot_Proofs.tla",
+          "statement": "Spec => []TypeInvariant",
+          "status": "proved",
+          "checkpoint": "tlaps.core"
+        },
+        {
+          "id": "proofs.NoFutureAdmission",
+          "module": "specs/Vortex_DSE_CSlot_Proofs.tla",
+          "statement": "Spec => []NoFutureAdmission",
+          "status": "proved",
+          "checkpoint": "tlaps.core"
+        },
+        {
+          "id": "proofs.StrictExactlyOnce",
+          "module": "specs/Vortex_DSE_CSlot_ExactlyOnce_Proof.tla",
+          "statement": "Spec => []StrictExactlyOnce",
+          "status": "proved",
+          "checkpoint": "tlaps.exactly-once"
+        }
+      ],
+      "assumptions": [
+        "Late-tolerant admission guard (m.cslot <= current_slot)",
+        "Crash/rejoin persistence assumptions encoded in spec"
+      ]
+    },
+    "vortex-dse-cslot-spec": {
+      "path": "formal/vortex-dse-cslot-spec",
+      "verification": ["TLC"],
+      "status": "active",
+      "theorems": [
+        {
+          "id": "spec.StrictAdmissionTiny",
+          "module": "specs/Vortex_DSE_CSlot.tla",
+          "config": "specs/Vortex_DSE_CSlot_tiny.cfg",
+          "status": "model-checked",
+          "checkpoint": "tlc.strict-tiny"
+        },
+        {
+          "id": "spec.StrictSkewTiny",
+          "module": "specs/Vortex_DSE_CSlot_Skew.tla",
+          "config": "specs/Vortex_DSE_CSlot_Skew_tiny.cfg",
+          "status": "model-checked",
+          "checkpoint": "tlc.strict-skew"
+        }
+      ],
+      "assumptions": [
+        "Strict admission guard (tx.cslot = current_slot)",
+        "Bounded-state exploration defined by TLC configs"
+      ]
+    },
+    "vortex-merkle-agreement": {
+      "path": "formal/vortex-merkle-agreement",
+      "verification": ["TLC", "Apalache"],
+      "status": "active",
+      "theorems": [
+        {
+          "id": "merkle.AESafetyTiny",
+          "module": "Vortex_DSE_CSlot_AE.tla",
+          "config": "Vortex_DSE_CSlot_AE_tiny.cfg",
+          "status": "model-checked",
+          "checkpoint": "tlc.ae-tiny"
+        },
+        {
+          "id": "merkle.AELiveness",
+          "module": "Vortex_DSE_CSlot_AE.tla",
+          "config": "Vortex_DSE_CSlot_AE_liveness.cfg",
+          "status": "model-checked",
+          "checkpoint": "tlc.ae-liveness"
+        },
+        {
+          "id": "merkle.ApalacheInvariant",
+          "module": "MC_Vortex_DSE_CSlot_AE.tla",
+          "status": "model-checked",
+          "checkpoint": "apalache.ae-inv"
+        }
+      ],
+      "assumptions": [
+        "Freeze/Reconcile/Commit phase discipline",
+        "Ideal network assumptions as declared by the repo"
+      ]
+    }
+  },
+  "dependencies": [
+    {
+      "from": "proofs.TypeInvariant",
+      "to": "proofs.NoFutureAdmission",
+      "kind": "supports"
+    },
+    {
+      "from": "proofs.NoFutureAdmission",
+      "to": "proofs.StrictExactlyOnce",
+      "kind": "supports"
+    },
+    {
+      "from": "proofs.StrictExactlyOnce",
+      "to": "merkle.AESafetyTiny",
+      "kind": "runtime-precondition",
+      "note": "Agreement consumes admitted input sets from admission"
+    },
+    {
+      "from": "spec.StrictAdmissionTiny",
+      "to": "merkle.AESafetyTiny",
+      "kind": "variant-reference",
+      "note": "Strict variant is a bounded alternative admission model"
+    },
+    {
+      "from": "merkle.AESafetyTiny",
+      "to": "merkle.AELiveness",
+      "kind": "supports"
+    }
+  ],
+  "verification_checkpoints": {
+    "tlaps.core": {
+      "workflow": ".github/workflows/verify-proofs.yml",
+      "status": "required"
+    },
+    "tlaps.exactly-once": {
+      "workflow": ".github/workflows/verify-proofs.yml",
+      "status": "required"
+    },
+    "tlc.strict-tiny": {
+      "workflow": ".github/workflows/verify-tlc.yml",
+      "status": "required"
+    },
+    "tlc.strict-skew": {
+      "workflow": ".github/workflows/verify-tlc.yml",
+      "status": "required"
+    },
+    "tlc.ae-tiny": {
+      "workflow": ".github/workflows/verify-tlc.yml",
+      "status": "required"
+    },
+    "tlc.ae-liveness": {
+      "workflow": ".github/workflows/verify-tlc.yml",
+      "status": "required"
+    },
+    "apalache.ae-inv": {
+      "workflow": ".github/workflows/verify-apalache.yml",
+      "status": "required"
+    }
+  }
+}

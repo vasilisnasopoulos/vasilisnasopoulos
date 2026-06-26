@@ -1,0 +1,29 @@
+name: Verify Apalache Models
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  apalache:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout hub + submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Run Apalache check for Merkle agreement
+        run: |
+          docker run --rm \
+            -v "$PWD":/workspace \
+            -w /workspace/formal/vortex-merkle-agreement \
+            ghcr.io/informalsystems/apalache:latest \
+            ./run_apalache.sh 8
