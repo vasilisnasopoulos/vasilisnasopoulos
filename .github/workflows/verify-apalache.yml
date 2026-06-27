@@ -23,7 +23,8 @@ jobs:
       - name: Run Apalache check for Merkle agreement
         run: |
           docker run --rm \
-            -v "$PWD":/workspace \
-            -w /workspace/formal/vortex-merkle-agreement \
+            -v "$PWD/formal/vortex-merkle-agreement":/var/apalache \
+            -w /var/apalache \
             ghcr.io/informalsystems/apalache:latest \
-            ./run_apalache.sh 8
+            --out-dir=/tmp/apalache-out \
+            check --cinit=ConstInit --inv=AllInv --length=8 MC_Vortex_DSE_CSlot_AE.tla
