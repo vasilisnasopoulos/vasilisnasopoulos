@@ -1,53 +1,117 @@
-# Vasilis Nasopoulos
+# 👋 Vasilis Nasopoulos — Vortex DSE
 
-I work on **formal methods**, **TLA+**, **machine-checked proofs**, and **correctness-first distributed systems**.
-This profile repository is the public hub for my Vortex DSE portfolio: a coherent chain from whitepaper to specification to proofs, with executable reference scenarios and agreement models.
+I work on **formal methods**, **TLA+**, **TLAPS machine-checked proofs**, and correctness-first **distributed systems / consensus**.
 
-## Focus
+This profile is the public landing page for the Vortex DSE artifacts: from whitepaper ➜ executable specification ➜ deductive proofs ➜ agreement model.
 
-- Formal specification in **TLA+**
-- Model checking with **TLC** and **Apalache**
-- Machine-checked proofs with **TLAPS**
-- Consensus protocols, deterministic admission, and agreement in distributed systems
+## 🚀 What is Vortex DSE?
 
-## Portfolio map
+**Vortex DSE** is a deterministic ordering and agreement research stack for distributed systems:
 
-| Step | Repository | What it shows | Description copy |
-|---|---|---|---|
-| 1. Whitepaper | [vortex-dse-whitepaper](https://github.com/vasilisnasopoulos-stack/vortex-dse-whitepaper) | Research paper, figures, and a small public demo that introduce Vortex DSE | Whitepaper and public demo for Vortex DSE: correctness-first distributed consensus research at the physical lower bound. |
-| 2. Specification | [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec) | Executable **TLA+** spec for strict C-slot admission, plus TLC configurations and JavaScript reference scenarios | TLA+ specification, TLC models, and JavaScript reference scenarios for the Vortex DSE strict C-slot admission rule. |
-| 3. Proofs | [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) | **TLAPS** machine-checked safety proofs for the late-tolerant admission model | TLAPS machine-checked safety proofs for the Vortex DSE late-tolerant C-slot admission model. |
-| 4. Agreement layer | [vortex-merkle-agreement](https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement) | **TLA+** model of per-slot Merkle agreement after admission | TLA+ model of the Vortex DSE Merkle agreement layer, checked with TLC and Apalache. |
-| Hub | [vasilisnasopoulos-stack](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack) | Profile README and cross-repo navigation for the full public portfolio | Formal methods portfolio hub for Vasilis Nasopoulos: whitepaper, TLA+ specs, TLAPS proofs, and distributed agreement models. |
+- Admission logic formalized in **TLA+**
+- Safety obligations proved with **TLAPS**
+- Bounded behavior validated with **TLC** and **Apalache**
+- Reference scenarios provided for easier implementation alignment
 
-## Recommended reading path
+## 🧭 Quick Navigation (all public repos)
 
-1. Start with [vortex-dse-whitepaper](https://github.com/vasilisnasopoulos-stack/vortex-dse-whitepaper) for the problem statement, terminology, and high-level protocol motivation.
-2. Continue to [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec) for the executable admission specification and reference scenarios.
-3. Read [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) for machine-checked TLAPS safety proofs of the admission model.
-4. Finish with [vortex-merkle-agreement](https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement) for the agreement layer that follows admission.
+| Repository | What you will find | Start here |
+|---|---|---|
+| [vortex-dse-whitepaper](https://github.com/vasilisnasopoulos-stack/vortex-dse-whitepaper) | Paper, figures, high-level motivation, and research framing | Read abstract + intro first |
+| [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec) | Strict C-slot admission TLA+ model + JS reference scenarios | Run TLC tiny config, then JS examples |
+| [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) | TLAPS machine-checked proofs (194 obligations proved) for admission safety | Verify proofs locally with `tlapm` |
+| [vortex-merkle-agreement](https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement) | Per-slot Merkle agreement layer with TLC + Apalache checks | Run `run_tlc.sh`, then `run_apalache.sh` |
+| [vasilisnasopoulos-stack](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack) | Portfolio hub, architecture map, reproduction guide, dependency flow | Continue with sections below |
 
-## Verification infrastructure
+## ⚡ Getting Started (new visitor, < 2 minutes)
+
+1. Read the [whitepaper repo](https://github.com/vasilisnasopoulos-stack/vortex-dse-whitepaper) to understand problem, goals, and terminology.
+2. Open [cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec) to see the executable strict admission model.
+3. Open [cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) to inspect TLAPS theorems and local proof verification.
+4. Open [vortex-merkle-agreement](https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement) to see post-admission convergence/commit.
+5. Use this repo’s [REPRODUCTION.md](REPRODUCTION.md) to run the same checks locally.
+
+## 🧪 Verification status
 
 ![TLAPS](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-proofs.yml/badge.svg)
 ![TLC](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-tlc.yml/badge.svg)
 ![Apalache](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-apalache.yml/badge.svg)
 
-### Start here
+## 🧱 Component map (how repos connect)
+
+```text
+Whitepaper
+   ↓
+C-slot Spec (strict admission, executable)
+   ↓
+C-slot Proofs (late-tolerant admission, TLAPS safety)
+   ↓
+Merkle Agreement (Freeze → Reconcile → Commit)
+```
+
+- Spec + proofs cover admission properties from complementary angles.
+- Merkle agreement models convergence after admission output.
+
+## 📚 Repo-by-repo quick start
+
+### 1) `vortex-dse-cslot-proofs`
+
+- **TLAPS in plain words:** TLAPS is the TLA+ Proof System that checks formal proof steps mechanically.
+- **What is proved:** 194 proof obligations, including invariants around type safety, no-future admission, and exactly-once admission behavior.
+- **Verify locally:**
+  ```sh
+  tlapm --toolbox 0 0 specs/Vortex_DSE_CSlot_Proofs.tla
+  tlapm --toolbox 0 0 specs/Vortex_DSE_CSlot_ExactlyOnce_Proof.tla
+  ```
+- **Related repo:** [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec)
+
+### 2) `vortex-dse-cslot-spec`
+
+- **Focus:** strict admission (`tx.cslot = current_slot`) modeled in TLA+.
+- **Structure:** core model + skew/adversarial variants + TLC configs + JS reference implementation.
+- **Run locally:**
+  ```sh
+  java -jar tla2tools.jar -workers auto \
+    -config specs/Vortex_DSE_CSlot_tiny.cfg \
+    specs/Vortex_DSE_CSlot.tla
+  node ref_impl/cslot_ref.mjs
+  ```
+- **Compare with:** [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) and [vortex-merkle-agreement](https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement)
+
+### 3) `vortex-merkle-agreement`
+
+- **Focus:** per-slot agreement after admission (Freeze → Reconcile → Commit).
+- **Verification:** TLC plus bounded checking with Apalache.
+- **Run locally:**
+  ```sh
+  ./run_tlc.sh /path/to/tla2tools.jar
+  APALACHE_BIN=/path/to/apalache-mc ./run_apalache.sh
+  ```
+- **Depends conceptually on:** admission output from C-slot repos.
+
+### 4) `vortex-dse-whitepaper`
+
+- **Focus:** research narrative, architecture intuition, and key claims.
+- **Use it for:** terminology and threat/assumption context before reading specs/proofs.
+- **Then continue to:** [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec) and [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs)
+- **Citation guidance:** see the whitepaper repo for canonical citation text and versioning.
+
+## 🗂️ Core resources in this hub repo
 
 - [ARCHITECTURE.md](ARCHITECTURE.md) — cross-repository system map and CI topology
-- [PROOF_STRUCTURE.md](PROOF_STRUCTURE.md) — proof and model-check dependency flow
+- [PROOF_STRUCTURE.md](PROOF_STRUCTURE.md) — proof/model-check dependency flow
 - [REPRODUCTION.md](REPRODUCTION.md) — canonical local reproduction commands
 - [SLICES.md](SLICES.md) — public verification slices and boundaries
 - [proof-dependencies.json](proof-dependencies.json) — machine-readable dependency graph
+- [REPOSITORY_DESCRIPTIONS.md](REPOSITORY_DESCRIPTIONS.md) — suggested one-line GitHub descriptions
+- [README_BLUEPRINTS.md](README_BLUEPRINTS.md) — consistent README section blueprint for all related repos
 
-## Scope notes
+## 🧾 Scope notes
 
-- These repositories are the **public formal artifacts** for the work; they are not a full public engine.
-- The portfolio is intentionally modular: whitepaper, specification, proofs, and agreement are exposed as separate reviewable artifacts.
-- Production C, benchmark internals, and some end-to-end composition details remain private.
-- Each repository documents its own assumptions, guarantees, and reproduction steps.
+- These repositories are public formal artifacts; they are not the complete production engine.
+- Production C internals, benchmark internals, and some end-to-end composition details remain private.
+- Each repository documents assumptions, guarantees, and reproducibility commands for its scope.
 
-## Topics
+## 🔖 Topics
 
-`formal-methods` · `tla+` · `tlc` · `tlaps` · `distributed-systems` · `consensus`
+`formal-methods` · `tla+` · `tlaps` · `tlc` · `apalache` · `distributed-systems` · `consensus`
