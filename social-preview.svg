@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Vortex DSE formal methods stack</title>
+  <desc id="desc">A visual overview of the whitepaper, TLA+ specification, TLAPS proofs, and Merkle agreement layers.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0b1020"/>
+      <stop offset="100%" stop-color="#151d39"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="80" y="110" fill="#ecf0ff" font-family="Arial, sans-serif" font-size="48" font-weight="700">Vortex DSE Formal Methods Hub</text>
+  <text x="80" y="158" fill="#b2bddb" font-family="Arial, sans-serif" font-size="24">From research framing to executable models to machine-checked proofs</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="80" y="235" width="220" height="170" rx="20" fill="#172142" stroke="#42548d"/>
+    <text x="110" y="290" fill="#8ab4ff" font-size="18" font-weight="700">1. Whitepaper</text>
+    <text x="110" y="332" fill="#ecf0ff" font-size="26" font-weight="700">Problem</text>
+    <text x="110" y="366" fill="#ecf0ff" font-size="26" font-weight="700">and terms</text>
+
+    <rect x="345" y="235" width="220" height="170" rx="20" fill="#172142" stroke="#42548d"/>
+    <text x="375" y="290" fill="#8ab4ff" font-size="18" font-weight="700">2. C-slot spec</text>
+    <text x="375" y="332" fill="#ecf0ff" font-size="26" font-weight="700">Executable</text>
+    <text x="375" y="366" fill="#ecf0ff" font-size="26" font-weight="700">TLA+ model</text>
+
+    <rect x="610" y="235" width="220" height="170" rx="20" fill="#172142" stroke="#42548d"/>
+    <text x="640" y="290" fill="#8ab4ff" font-size="18" font-weight="700">3. TLAPS proofs</text>
+    <text x="640" y="332" fill="#ecf0ff" font-size="26" font-weight="700">Safety</text>
+    <text x="640" y="366" fill="#ecf0ff" font-size="26" font-weight="700">obligations</text>
+
+    <rect x="875" y="235" width="245" height="170" rx="20" fill="#172142" stroke="#42548d"/>
+    <text x="905" y="290" fill="#8ab4ff" font-size="18" font-weight="700">4. Agreement checks</text>
+    <text x="905" y="332" fill="#ecf0ff" font-size="26" font-weight="700">TLC +</text>
+    <text x="905" y="366" fill="#ecf0ff" font-size="26" font-weight="700">Apalache</text>
+
+    <path d="M300 320 H345" stroke="#8ab4ff" stroke-width="6" stroke-linecap="round"/>
+    <path d="M565 320 H610" stroke="#8ab4ff" stroke-width="6" stroke-linecap="round"/>
+    <path d="M830 320 H875" stroke="#8ab4ff" stroke-width="6" stroke-linecap="round"/>
+    <polygon points="338,310 356,320 338,330" fill="#8ab4ff"/>
+    <polygon points="603,310 621,320 603,330" fill="#8ab4ff"/>
+    <polygon points="868,310 886,320 868,330" fill="#8ab4ff"/>
+  </g>
+</svg>

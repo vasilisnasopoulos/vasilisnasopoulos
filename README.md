@@ -4,6 +4,13 @@ I work on **formal methods**, **TLA+**, **TLAPS machine-checked proofs**, and co
 
 This profile is the public landing page for the Vortex DSE artifacts: from whitepaper ➜ executable specification ➜ deductive proofs ➜ agreement model.
 
+[![TLAPS checks](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-proofs.yml/badge.svg)](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-proofs.yml)
+[![TLC checks](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-tlc.yml/badge.svg)](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-tlc.yml)
+[![Apalache checks](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-apalache.yml/badge.svg)](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-apalache.yml)
+[![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![Topics](https://img.shields.io/badge/topics-formal--methods%20%C2%B7%20tla%2B%20%C2%B7%20consensus-6f42c1)](#-topics)
+[![Release notes](https://img.shields.io/badge/release-v1.0.0-orange)](RELEASE_NOTES.md)
+
 ## 🚀 What is Vortex DSE?
 
 **Vortex DSE** is a deterministic ordering and agreement research stack for distributed systems:
@@ -12,6 +19,20 @@ This profile is the public landing page for the Vortex DSE artifacts: from white
 - Safety obligations proved with **TLAPS**
 - Bounded behavior validated with **TLC** and **Apalache**
 - Reference scenarios provided for easier implementation alignment
+
+## 💡 Why this matters
+
+- **For researchers:** the repositories expose assumptions, invariants, and proof obligations in a form that can be inspected and reproduced.
+- **For engineers:** they show how consensus and admission rules can be specified before implementation details become production bugs.
+- **For new readers:** the stack is organized as a path from motivation ➜ executable model ➜ machine-checked proof ➜ agreement layer.
+
+## 👀 Visual overview
+
+If you are new to TLA+, start with the whitepaper for intuition, then move to the executable spec, and only then open the proofs.
+
+- **Read:** whitepaper for the problem statement and vocabulary
+- **Run:** strict admission scenarios and bounded model checks
+- **Verify:** TLAPS proofs and agreement checks for safety-oriented claims
 
 ## 🧭 Quick Navigation (all public repos)
 
@@ -33,20 +54,33 @@ This profile is the public landing page for the Vortex DSE artifacts: from white
 
 ## 🧪 Verification status
 
-![TLAPS](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-proofs.yml/badge.svg)
-![TLC](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-tlc.yml/badge.svg)
-![Apalache](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-apalache.yml/badge.svg)
+- TLAPS proofs: `verify-proofs.yml`
+- TLC models: `verify-tlc.yml`
+- Apalache model checking: `verify-apalache.yml`
+
+## 🧱 Architecture diagram
+
+```mermaid
+flowchart TD
+    W[Whitepaper<br/>problem framing and terminology]
+    S[C-slot Spec<br/>TLA+ strict admission model]
+    P[C-slot Proofs<br/>TLAPS machine-checked safety]
+    M[Merkle Agreement<br/>TLC + Apalache convergence checks]
+    H[Hub repo<br/>reproduction guides, architecture, badges]
+
+    W --> S --> P --> M
+    H -. links and reproducibility .-> W
+    H -. verification map .-> S
+    H -. verification map .-> P
+    H -. verification map .-> M
+```
 
 ## 🧱 Component map (how repos connect)
 
 ```text
-Whitepaper
-   ↓
-C-slot Spec (strict admission, executable)
-   ↓
-C-slot Proofs (late-tolerant admission, TLAPS safety)
-   ↓
-Merkle Agreement (Freeze → Reconcile → Commit)
+Whitepaper → C-slot Spec → C-slot Proofs → Merkle Agreement
+            ↑
+      hub repo documents the path, verification commands, and release notes
 ```
 
 - Spec + proofs cover admission properties from complementary angles.
@@ -104,6 +138,8 @@ Merkle Agreement (Freeze → Reconcile → Commit)
 - [SLICES.md](SLICES.md) — public verification slices and boundaries
 - [proof-dependencies.json](proof-dependencies.json) — machine-readable dependency graph
 - [REPOSITORY_DESCRIPTIONS.md](REPOSITORY_DESCRIPTIONS.md) — suggested one-line GitHub descriptions
+- [RELEASE_NOTES.md](RELEASE_NOTES.md) — draft `v1.0.0` release notes for the public formal baseline
+- [CONTRIBUTING.md](CONTRIBUTING.md) — contributor onboarding and review expectations
 - [README_BLUEPRINTS.md](README_BLUEPRINTS.md) — consistent README section blueprint for all related repos
 
 ## 🧾 Scope notes

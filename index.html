@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vortex DSE Formal Methods Hub</title>
+    <meta name="description" content="Formal methods hub for Vortex DSE: TLA+ specs, TLAPS proofs, TLC/Apalache checks, and consensus research.">
+    <link rel="canonical" href="https://vasilisnasopoulos-stack.github.io/vasilisnasopoulos-stack/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Vortex DSE Formal Methods Hub">
+    <meta property="og:description" content="Explore the Vortex DSE whitepaper, TLA+ specs, TLAPS proofs, and agreement checks in one place.">
+    <meta property="og:url" content="https://vasilisnasopoulos-stack.github.io/vasilisnasopoulos-stack/">
+    <meta property="og:image" content="https://vasilisnasopoulos-stack.github.io/vasilisnasopoulos-stack/social-preview.svg">
+    <meta property="og:image:alt" content="Architecture overview of the Vortex DSE formal methods stack">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vortex DSE Formal Methods Hub">
+    <meta name="twitter:description" content="A newcomer-friendly landing page for the Vortex DSE whitepaper, TLA+ specs, TLAPS proofs, and agreement models.">
+    <meta name="twitter:image" content="https://vasilisnasopoulos-stack.github.io/vasilisnasopoulos-stack/social-preview.svg">
+
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0b1020;
+        --panel: #141b34;
+        --text: #ecf0ff;
+        --muted: #b2bddb;
+        --accent: #8ab4ff;
+        --border: #2d3a64;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: linear-gradient(180deg, #0b1020 0%, #131a33 100%);
+        color: var(--text);
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 56px 20px 72px;
+      }
+
+      .hero,
+      .panel {
+        background: rgba(20, 27, 52, 0.88);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 28px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+      }
+
+      .hero h1,
+      .panel h2 {
+        margin-top: 0;
+      }
+
+      .hero p,
+      .panel p,
+      .panel li {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .actions,
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .actions {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        margin-top: 24px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        margin-top: 24px;
+      }
+
+      .card {
+        padding: 18px;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: rgba(10, 16, 34, 0.65);
+      }
+
+      a {
+        color: var(--accent);
+      }
+
+      .badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0 0;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(138, 180, 255, 0.08);
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      .diagram {
+        width: 100%;
+        margin-top: 18px;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: #0e1530;
+      }
+
+      section {
+        margin-top: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <p>Formal methods · TLA+ · TLAPS · distributed consensus</p>
+        <h1>Vortex DSE Formal Methods Hub</h1>
+        <p>
+          A lightweight landing page for readers who want the shortest path from
+          problem statement to executable specification to machine-checked proof.
+        </p>
+        <div class="badge-row">
+          <a class="badge" href="https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-proofs.yml">TLAPS checks</a>
+          <a class="badge" href="https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-tlc.yml">TLC checks</a>
+          <a class="badge" href="https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-apalache.yml">Apalache checks</a>
+          <a class="badge" href="https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/blob/main/RELEASE_NOTES.md">v1.0.0 notes</a>
+        </div>
+        <div class="actions">
+          <a class="card" href="https://github.com/vasilisnasopoulos-stack/vortex-dse-whitepaper">
+            <strong>1. Read the whitepaper</strong>
+            <p>Understand the motivation, terminology, and research framing first.</p>
+          </a>
+          <a class="card" href="https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec">
+            <strong>2. Run the strict admission model</strong>
+            <p>See the executable TLA+ model and the reference scenarios.</p>
+          </a>
+          <a class="card" href="https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs">
+            <strong>3. Inspect machine-checked proofs</strong>
+            <p>Move into TLAPS only after the spec and terminology are familiar.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Architecture overview</h2>
+        <p>
+          The public artifacts are intentionally layered so casual readers can
+          enter at the whitepaper and specialists can continue into proofs.
+        </p>
+        <img class="diagram" src="social-preview.svg" alt="Vortex DSE architecture overview diagram">
+      </section>
+
+      <section class="panel">
+        <h2>Why this matters</h2>
+        <div class="grid">
+          <div class="card">
+            <strong>For researchers</strong>
+            <p>Clear assumptions, invariants, and proof boundaries make the work easier to review and cite.</p>
+          </div>
+          <div class="card">
+            <strong>For engineers</strong>
+            <p>Executable models and scenario suites help connect formal claims to implementation-facing behavior.</p>
+          </div>
+          <div class="card">
+            <strong>For new contributors</strong>
+            <p>The hub now provides a newcomer path, contributor guide, and reusable release summary.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
