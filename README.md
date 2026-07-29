@@ -40,7 +40,7 @@ If you are new to TLA+, start with the whitepaper for intuition, then move to th
 |---|---|---|
 | [vortex-dse-whitepaper](https://github.com/vasilisnasopoulos-stack/vortex-dse-whitepaper) | Paper, figures, high-level motivation, and research framing | Read abstract + intro first |
 | [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec) | Strict C-slot admission TLA+ model + JS reference scenarios | Run TLC tiny config, then JS examples |
-| [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) | TLAPS machine-checked proofs (194 obligations proved) for admission safety | Verify proofs locally with `tlapm` |
+| [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) | TLAPS machine-checked proofs (325 obligations proved) for admission safety | Verify proofs locally with `tlapm` |
 | [vortex-merkle-agreement](https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement) | Per-slot Merkle agreement layer with TLC + Apalache checks | Run `run_tlc.sh`, then `run_apalache.sh` |
 | [vasilisnasopoulos-stack](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack) | Portfolio hub, architecture map, reproduction guide, dependency flow | Continue with sections below |
 
@@ -91,7 +91,7 @@ Whitepaper → C-slot Spec → C-slot Proofs → Merkle Agreement
 ### 1) `vortex-dse-cslot-proofs`
 
 - **TLAPS in plain words:** TLAPS is the TLA+ Proof System that checks formal proof steps mechanically.
-- **What is proved:** 194 proof obligations, including invariants around type safety, no-future admission, and exactly-once admission behavior.
+- **What is proved:** 325 proof obligations across two modules — 194 in `Vortex_DSE_CSlot_Proofs.tla` (type safety, no-future admission) and 131 in `Vortex_DSE_CSlot_ExactlyOnce_Proof.tla` (exactly-once admission). All discharged, and CI fails the build if any obligation is left unproved.
 - **Verify locally:**
   ```sh
   tlapm --toolbox 0 0 specs/Vortex_DSE_CSlot_Proofs.tla

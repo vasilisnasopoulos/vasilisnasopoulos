@@ -17,7 +17,7 @@ Use these sections to keep formatting, navigation, and onboarding consistent acr
 ## `vortex-dse-cslot-proofs` blueprint notes
 
 - Explain TLAPS simply: "TLAPS is a machine-checker for TLA+ proofs."
-- Mention status: 194 obligations proved.
+- Mention status: 325 obligations proved (194 + 131 across two modules).
 - Enumerate theorem families in plain language:
   - type consistency invariant
   - no-future admission safety
