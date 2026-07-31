@@ -1,0 +1,8 @@
+title: Vasilis Nasopoulos
+description: Formal methods, TLA+, and correctness-first distributed systems.
+theme: jekyll-theme-minimal
+markdown: kramdown
+exclude:
+  - formal/
+  - "*.json"
+  - "*.svg"
