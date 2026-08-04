@@ -71,9 +71,9 @@ The **strict** spec repo is another **part of the admission layer** (a variant +
 
 | Part | Question it answers | Public repo | Verification |
 |------|---------------------|-------------|--------------|
-| Default C-slot admission | Can a node admit a future-dated message? (default model) | [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) | **TLAPS** (deductive safety proofs) |
-| Strict C-slot + adversary | How does strict same-slot admission behave? Clock skew / spoofing? | [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec) | **TLC** + JS reference |
-| Baseline per-slot agreement | After admission, do nodes commit the same input set per slot? (ideal network) | [vortex-merkle-agreement](https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement) | **TLC** + Apalache |
+| Default C-slot admission | Can a node admit a future-dated message? (default model) | [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos/vortex-dse-cslot-proofs) | **TLAPS** (deductive safety proofs) |
+| Strict C-slot + adversary | How does strict same-slot admission behave? Clock skew / spoofing? | [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos/vortex-dse-cslot-spec) | **TLC** + JS reference |
+| Baseline per-slot agreement | After admission, do nodes commit the same input set per slot? (ideal network) | [vortex-merkle-agreement](https://github.com/vasilisnasopoulos/vortex-merkle-agreement) | **TLC** + Apalache |
 
 ## Not public (do not infer from the repos above)
 
@@ -89,14 +89,14 @@ The **strict** spec repo is another **part of the admission layer** (a variant +
 
 **Can conclude (from a given repo):** that **part of the machine** satisfies the properties in that repo’s claims matrix, under that part’s assumptions.
 
-**Cannot conclude:** the **fully assembled machine** is verified end-to-end; that unpublished parts are proved here; that a property proved on part A automatically holds on the assembled system without a composition proof; or that the strict spec repo equals the default production admission rule (see [proofs vs spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs#declared-limits)).
+**Cannot conclude:** the **fully assembled machine** is verified end-to-end; that unpublished parts are proved here; that a property proved on part A automatically holds on the assembled system without a composition proof; or that the strict spec repo equals the default production admission rule (see [proofs vs spec](https://github.com/vasilisnasopoulos/vortex-dse-cslot-proofs#declared-limits)).
 
 ## Suggested reading order
 
 1. This file (how the parts connect).
-2. [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) — default admission + what is deductively proved.
-3. [vortex-merkle-agreement](https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement) — per-slot agreement part.
-4. [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec) — strict admission variant (different rule).
+2. [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos/vortex-dse-cslot-proofs) — default admission + what is deductively proved.
+3. [vortex-merkle-agreement](https://github.com/vasilisnasopoulos/vortex-merkle-agreement) — per-slot agreement part.
+4. [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos/vortex-dse-cslot-spec) — strict admission variant (different rule).
 
 ## Two admission models (common confusion)
 

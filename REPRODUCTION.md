@@ -5,8 +5,8 @@ All commands below are run from the hub repository root.
 ## 1) Clone with submodules
 
 ```sh
-git clone --recurse-submodules https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack.git
-cd vasilisnasopoulos-stack
+git clone --recurse-submodules https://github.com/vasilisnasopoulos/vasilisnasopoulos.git
+cd vasilisnasopoulos
 ```
 
 If already cloned:

@@ -13,7 +13,7 @@ This milestone packages the public Vortex DSE formal-methods artifacts into a cl
 
 ### Included repositories
 
-- `vasilisnasopoulos-stack` — hub, navigation, architecture, reproduction, badges
+- `vasilisnasopoulos` — hub, navigation, architecture, reproduction, badges
 - `vortex-dse-whitepaper` — motivation, terminology, research framing
 - `vortex-dse-cslot-spec` — executable strict-admission model
 - `vortex-dse-cslot-proofs` — machine-checked admission safety proofs

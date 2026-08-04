@@ -5,7 +5,7 @@ This hub repository unifies the three public formal repositories into one verifi
 ## Repository topology
 
 ```text
-vasilisnasopoulos-stack (hub)
+vasilisnasopoulos (hub)
 ├── formal/vortex-dse-cslot-proofs     (TLAPS deductive proofs)
 ├── formal/vortex-dse-cslot-spec       (TLC strict-admission bounded checks)
 └── formal/vortex-merkle-agreement     (TLC + Apalache agreement checks)

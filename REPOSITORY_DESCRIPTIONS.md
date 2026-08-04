@@ -2,7 +2,7 @@
 
 Copy/paste candidates for each repository description field on GitHub.
 
-- **vasilisnasopoulos-stack**  
+- **vasilisnasopoulos**  
   Formal methods hub for Vortex DSE: TLA+ specs, TLAPS proofs, TLC/Apalache checks, and consensus research.
 
 - **vortex-dse-cslot-proofs**  

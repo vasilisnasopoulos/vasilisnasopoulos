@@ -60,7 +60,7 @@ Use these sections to keep formatting, navigation, and onboarding consistent acr
   - Merkle agreement repo
 - Include a "How to cite" section with canonical citation text.
 
-## `vasilisnasopoulos-stack` (profile) blueprint notes
+## `vasilisnasopoulos` (profile) blueprint notes
 
 - Keep as portfolio landing page/hub.
 - Provide fast nav to all repositories.

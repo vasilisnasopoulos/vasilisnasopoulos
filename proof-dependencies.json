@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "last_updated": "2026-06-26",
-  "hub_repository": "vasilisnasopoulos-stack/vasilisnasopoulos-stack",
+  "hub_repository": "vasilisnasopoulos/vasilisnasopoulos",
   "repositories": {
     "vortex-dse-cslot-proofs": {
       "path": "formal/vortex-dse-cslot-proofs",

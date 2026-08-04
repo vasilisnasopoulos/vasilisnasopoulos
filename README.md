@@ -4,9 +4,9 @@ I work on **formal methods**, **TLA+**, **TLAPS machine-checked proofs**, and co
 
 This profile is the public landing page for the Vortex DSE artifacts: from whitepaper ➜ executable specification ➜ deductive proofs ➜ agreement model.
 
-[![TLAPS checks](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-proofs.yml/badge.svg)](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-proofs.yml)
-[![TLC checks](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-tlc.yml/badge.svg)](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-tlc.yml)
-[![Apalache checks](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-apalache.yml/badge.svg)](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack/actions/workflows/verify-apalache.yml)
+[![TLAPS checks](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-proofs.yml/badge.svg)](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-proofs.yml)
+[![TLC checks](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-tlc.yml/badge.svg)](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-tlc.yml)
+[![Apalache checks](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-apalache.yml/badge.svg)](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-apalache.yml)
 [![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Topics](https://img.shields.io/badge/topics-formal--methods%20%C2%B7%20tla%2B%20%C2%B7%20consensus-6f42c1)](#-topics)
 [![Release notes](https://img.shields.io/badge/release-v1.0.0-orange)](RELEASE_NOTES.md)
@@ -38,18 +38,18 @@ If you are new to TLA+, start with the whitepaper for intuition, then move to th
 
 | Repository | What you will find | Start here |
 |---|---|---|
-| [vortex-dse-whitepaper](https://github.com/vasilisnasopoulos-stack/vortex-dse-whitepaper) | Paper, figures, high-level motivation, and research framing | Read abstract + intro first |
-| [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec) | Strict C-slot admission TLA+ model + JS reference scenarios | Run TLC tiny config, then JS examples |
-| [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) | TLAPS machine-checked proofs (325 obligations proved) for admission safety | Verify proofs locally with `tlapm` |
-| [vortex-merkle-agreement](https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement) | Per-slot Merkle agreement layer with TLC + Apalache checks | Run `run_tlc.sh`, then `run_apalache.sh` |
-| [vasilisnasopoulos-stack](https://github.com/vasilisnasopoulos-stack/vasilisnasopoulos-stack) | Portfolio hub, architecture map, reproduction guide, dependency flow | Continue with sections below |
+| [vortex-dse-whitepaper](https://github.com/vasilisnasopoulos/vortex-dse-whitepaper) | Paper, figures, high-level motivation, and research framing | Read abstract + intro first |
+| [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos/vortex-dse-cslot-spec) | Strict C-slot admission TLA+ model + JS reference scenarios | Run TLC tiny config, then JS examples |
+| [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos/vortex-dse-cslot-proofs) | TLAPS machine-checked proofs (325 obligations proved) for admission safety | Verify proofs locally with `tlapm` |
+| [vortex-merkle-agreement](https://github.com/vasilisnasopoulos/vortex-merkle-agreement) | Per-slot Merkle agreement layer with TLC + Apalache checks | Run `run_tlc.sh`, then `run_apalache.sh` |
+| [vasilisnasopoulos](https://github.com/vasilisnasopoulos/vasilisnasopoulos) | Portfolio hub, architecture map, reproduction guide, dependency flow | Continue with sections below |
 
 ## ⚡ Getting Started (new visitor, < 2 minutes)
 
-1. Read the [whitepaper repo](https://github.com/vasilisnasopoulos-stack/vortex-dse-whitepaper) to understand problem, goals, and terminology.
-2. Open [cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec) to see the executable strict admission model.
-3. Open [cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) to inspect TLAPS theorems and local proof verification.
-4. Open [vortex-merkle-agreement](https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement) to see post-admission convergence/commit.
+1. Read the [whitepaper repo](https://github.com/vasilisnasopoulos/vortex-dse-whitepaper) to understand problem, goals, and terminology.
+2. Open [cslot-spec](https://github.com/vasilisnasopoulos/vortex-dse-cslot-spec) to see the executable strict admission model.
+3. Open [cslot-proofs](https://github.com/vasilisnasopoulos/vortex-dse-cslot-proofs) to inspect TLAPS theorems and local proof verification.
+4. Open [vortex-merkle-agreement](https://github.com/vasilisnasopoulos/vortex-merkle-agreement) to see post-admission convergence/commit.
 5. Use this repo’s [REPRODUCTION.md](REPRODUCTION.md) to run the same checks locally.
 
 ## 🧪 Verification status
@@ -97,7 +97,7 @@ Whitepaper → C-slot Spec → C-slot Proofs → Merkle Agreement
   tlapm --toolbox 0 0 specs/Vortex_DSE_CSlot_Proofs.tla
   tlapm --toolbox 0 0 specs/Vortex_DSE_CSlot_ExactlyOnce_Proof.tla
   ```
-- **Related repo:** [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec)
+- **Related repo:** [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos/vortex-dse-cslot-spec)
 
 ### 2) `vortex-dse-cslot-spec`
 
@@ -110,7 +110,7 @@ Whitepaper → C-slot Spec → C-slot Proofs → Merkle Agreement
     specs/Vortex_DSE_CSlot.tla
   node ref_impl/cslot_ref.mjs
   ```
-- **Compare with:** [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs) and [vortex-merkle-agreement](https://github.com/vasilisnasopoulos-stack/vortex-merkle-agreement)
+- **Compare with:** [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos/vortex-dse-cslot-proofs) and [vortex-merkle-agreement](https://github.com/vasilisnasopoulos/vortex-merkle-agreement)
 
 ### 3) `vortex-merkle-agreement`
 
@@ -127,7 +127,7 @@ Whitepaper → C-slot Spec → C-slot Proofs → Merkle Agreement
 
 - **Focus:** research narrative, architecture intuition, and key claims.
 - **Use it for:** terminology and threat/assumption context before reading specs/proofs.
-- **Then continue to:** [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-spec) and [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos-stack/vortex-dse-cslot-proofs)
+- **Then continue to:** [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos/vortex-dse-cslot-spec) and [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos/vortex-dse-cslot-proofs)
 - **Citation guidance:** see the whitepaper repo for canonical citation text and versioning.
 
 ## 🗂️ Core resources in this hub repo
