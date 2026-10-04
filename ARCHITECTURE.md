@@ -55,6 +55,7 @@ Any failing workflow blocks merge and signals proof regression.
 
 ## Source of truth
 
+- Claim/evidence/scope matrix: [`CLAIMS_AND_SCOPE.md`](CLAIMS_AND_SCOPE.md)
 - Dependency graph: [`proof-dependencies.json`](proof-dependencies.json)
 - Flow-level explanation: [`PROOF_STRUCTURE.md`](PROOF_STRUCTURE.md)
 - Reproduction commands: [`REPRODUCTION.md`](REPRODUCTION.md)

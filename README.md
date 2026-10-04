@@ -2,7 +2,7 @@
 
 I work on **formal methods**, **TLA+**, **TLAPS machine-checked proofs**, and correctness-first **distributed systems / consensus**.
 
-This profile is the public landing page for the Vortex DSE artifacts: from whitepaper ➜ executable specification ➜ deductive proofs ➜ agreement model.
+This profile is the public landing page for Vortex DSE research artifacts: whitepaper, executable specifications, deductive proofs, agreement models, and demonstrations. The public repositories are related components and evidence slices, not a single publicly composed end-to-end proof of the private production engine.
 
 [![TLAPS checks](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-proofs.yml/badge.svg)](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-proofs.yml)
 [![TLC checks](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-tlc.yml/badge.svg)](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-tlc.yml)
@@ -19,6 +19,8 @@ This profile is the public landing page for the Vortex DSE artifacts: from white
 - Safety obligations proved with **TLAPS**
 - Bounded behavior validated with **TLC** and **Apalache**
 - Reference scenarios provided for easier implementation alignment
+
+> **Reviewer scope note:** The public artifacts establish different claims with different kinds of evidence; they are not a proof of the complete production engine. Start with the [claims, evidence, and scope matrix](CLAIMS_AND_SCOPE.md) and [public verification slices](SLICES.md).
 
 ## 💡 Why this matters
 
@@ -38,6 +40,7 @@ If you are new to TLA+, start with the whitepaper for intuition, then move to th
 
 | Repository | What you will find | Start here |
 |---|---|---|
+| [CLAIMS_AND_SCOPE.md](CLAIMS_AND_SCOPE.md) | Reviewer reference: claims, evidence categories, scope, and limits | Read this first |
 | [vortex-dse-whitepaper](https://github.com/vasilisnasopoulos/vortex-dse-whitepaper) | Paper, figures, high-level motivation, and research framing | Read abstract + intro first |
 | [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos/vortex-dse-cslot-spec) | Strict C-slot admission TLA+ model + JS reference scenarios | Run TLC tiny config, then JS examples |
 | [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos/vortex-dse-cslot-proofs) | TLAPS machine-checked proofs (325 obligations proved) for admission safety | Verify proofs locally with `tlapm` |
@@ -132,6 +135,7 @@ Whitepaper → C-slot Spec → C-slot Proofs → Merkle Agreement
 
 ## 🗂️ Core resources in this hub repo
 
+- [CLAIMS_AND_SCOPE.md](CLAIMS_AND_SCOPE.md) — canonical claim/evidence/scope matrix for reviewers
 - [ARCHITECTURE.md](ARCHITECTURE.md) — cross-repository system map and CI topology
 - [PROOF_STRUCTURE.md](PROOF_STRUCTURE.md) — proof/model-check dependency flow
 - [REPRODUCTION.md](REPRODUCTION.md) — canonical local reproduction commands

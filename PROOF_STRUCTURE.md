@@ -2,6 +2,8 @@
 
 This document describes how proofs and model checks connect across the three public repositories.
 
+For the canonical claim/evidence/scope matrix, see [`CLAIMS_AND_SCOPE.md`](CLAIMS_AND_SCOPE.md).
+
 ## Core dependency chain
 
 ```text
