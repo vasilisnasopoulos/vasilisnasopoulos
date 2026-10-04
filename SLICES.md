@@ -4,6 +4,8 @@ Vortex DSE is **one machine**: a layered protocol stack (admission → agreement
 
 What we do **not** publish today: the whole machine at once (production C, every layer, and one composed end-to-end theorem wiring all parts together).
 
+> **Reviewer reference:** See [CLAIMS_AND_SCOPE.md](CLAIMS_AND_SCOPE.md) for the canonical matrix of claims, evidence, scope, and what each artifact does not establish.
+
 ## The distinction that matters
 
 | | Meaning |

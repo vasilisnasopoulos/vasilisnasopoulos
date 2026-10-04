@@ -2,6 +2,10 @@
 
 All commands below are run from the hub repository root.
 
+## What reproduction establishes
+
+Reproducing a proof or model-check run confirms only the stated property for that artifact’s model, configuration, bounds, and declared assumptions. It does not by itself establish refinement to the private production implementation or an end-to-end theorem composed across the public artifacts.
+
 ## 1) Clone with submodules
 
 ```sh
