@@ -2,7 +2,7 @@
 
 I work on **formal methods**, **TLA+**, **TLAPS machine-checked proofs**, and correctness-first **distributed systems / consensus**.
 
-This profile is the public landing page for Vortex DSE research artifacts: whitepaper, executable specifications, deductive proofs, agreement models, and demonstrations. The public repositories are related components and evidence slices, not a single publicly composed end-to-end proof of the private production engine.
+This profile is the public landing page for Vortex DSE research artifacts: the Silence Theorem, executable specifications, deductive proofs, agreement models, and demonstrations. The public repositories are related components and evidence slices, not a single publicly composed end-to-end proof of the private production engine.
 
 [![TLAPS checks](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-proofs.yml/badge.svg)](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-proofs.yml)
 [![TLC checks](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-tlc.yml/badge.svg)](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-tlc.yml)
@@ -15,6 +15,7 @@ This profile is the public landing page for Vortex DSE research artifacts: white
 
 **Vortex DSE** is a deterministic ordering and agreement research stack for distributed systems:
 
+- Leaderless: consensus only where it is provably unavoidable — on silence — and exactly as much as needed
 - Admission logic formalized in **TLA+**
 - Safety obligations proved with **TLAPS**
 - Bounded behavior validated with **TLC** and **Apalache**
@@ -30,9 +31,9 @@ This profile is the public landing page for Vortex DSE research artifacts: white
 
 ## 👀 Visual overview
 
-If you are new to TLA+, start with the whitepaper for intuition, then move to the executable spec, and only then open the proofs.
+If you are new to TLA+, start with where-coordination-goes for intuition, then move to the executable spec, and only then open the proofs.
 
-- **Read:** whitepaper for the problem statement and vocabulary
+- **Read:** where-coordination-goes for the problem statement and vocabulary
 - **Run:** strict admission scenarios and bounded model checks
 - **Verify:** TLAPS proofs and agreement checks for safety-oriented claims
 
@@ -41,15 +42,21 @@ If you are new to TLA+, start with the whitepaper for intuition, then move to th
 | Repository | What you will find | Start here |
 |---|---|---|
 | [CLAIMS_AND_SCOPE.md](CLAIMS_AND_SCOPE.md) | Reviewer reference: claims, evidence categories, scope, and limits | Read this first |
-| [vortex-dse-whitepaper](https://github.com/vasilisnasopoulos/vortex-dse-whitepaper) | Paper, figures, high-level motivation, and research framing | Read abstract + intro first |
+| [where-coordination-goes](https://github.com/vasilisnasopoulos/where-coordination-goes) | The Silence Theorem: the only coordination a decision needs is agreement on silence, exactly τ of it — TLAPS proofs, TLC models | Read the README, then `MINIMAL_SILENCE` |
 | [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos/vortex-dse-cslot-spec) | Strict C-slot admission TLA+ model + JS reference scenarios | Run TLC tiny config, then JS examples |
 | [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos/vortex-dse-cslot-proofs) | TLAPS machine-checked proofs (325 obligations proved) for admission safety | Verify proofs locally with `tlapm` |
 | [vortex-merkle-agreement](https://github.com/vasilisnasopoulos/vortex-merkle-agreement) | Per-slot Merkle agreement layer with TLC + Apalache checks | Run `run_tlc.sh`, then `run_apalache.sh` |
+| [pick-the-order](https://github.com/vasilisnasopoulos/pick-the-order) | Open challenge: choose the arrival order for 3,000 transactions; the ledger hash comes out the same | Send a seed |
+| [recovery-safety-property](https://github.com/vasilisnasopoulos/recovery-safety-property) | Recovery safety (RS1–RS3): property, executable assertion, declared limit. CC BY 4.0 | Read the property |
+| [vortex-festival-demo](https://github.com/vasilisnasopoulos/vortex-festival-demo) | Festival payments with no server: registers die at peak, selling through a network split | Measurements + verify scripts |
+| [vortex-tesla-demo](https://github.com/vasilisnasopoulos/vortex-tesla-demo) | Three cars, one ledger, no server — next to Tesla's own reference server | Recording + scripts |
+| [vortex-dss-demo](https://github.com/vasilisnasopoulos/vortex-dss-demo) | Drone airspace deconfliction on three continents, no leader | Measurements + recording |
+| [vortex-dse-whitepaper](https://github.com/vasilisnasopoulos/vortex-dse-whitepaper) | Earlier work (2026), **superseded** — its 2×RTT lower-bound claim is withdrawn | Archived, for the record |
 | [vasilisnasopoulos](https://github.com/vasilisnasopoulos/vasilisnasopoulos) | Portfolio hub, architecture map, reproduction guide, dependency flow | Continue with sections below |
 
 ## ⚡ Getting Started (new visitor, < 2 minutes)
 
-1. Read the [whitepaper repo](https://github.com/vasilisnasopoulos/vortex-dse-whitepaper) to understand problem, goals, and terminology.
+1. Read [where-coordination-goes](https://github.com/vasilisnasopoulos/where-coordination-goes) — the Silence Theorem: where coordination is unavoidable, and how little of it is enough.
 2. Open [cslot-spec](https://github.com/vasilisnasopoulos/vortex-dse-cslot-spec) to see the executable strict admission model.
 3. Open [cslot-proofs](https://github.com/vasilisnasopoulos/vortex-dse-cslot-proofs) to inspect TLAPS theorems and local proof verification.
 4. Open [vortex-merkle-agreement](https://github.com/vasilisnasopoulos/vortex-merkle-agreement) to see post-admission convergence/commit.
@@ -65,7 +72,7 @@ If you are new to TLA+, start with the whitepaper for intuition, then move to th
 
 ```mermaid
 flowchart TD
-    W[Whitepaper<br/>problem framing and terminology]
+    W[where-coordination-goes<br/>Silence Theorem: where coordination goes]
     S[C-slot Spec<br/>TLA+ strict admission model]
     P[C-slot Proofs<br/>TLAPS machine-checked safety]
     M[Merkle Agreement<br/>TLC + Apalache convergence checks]
@@ -81,7 +88,7 @@ flowchart TD
 ## 🧱 Component map (how repos connect)
 
 ```text
-Whitepaper → C-slot Spec → C-slot Proofs → Merkle Agreement
+Silence Theorem → C-slot Spec → C-slot Proofs → Merkle Agreement
             ↑
       hub repo documents the path, verification commands, and release notes
 ```
@@ -126,9 +133,10 @@ Whitepaper → C-slot Spec → C-slot Proofs → Merkle Agreement
   ```
 - **Depends conceptually on:** admission output from C-slot repos.
 
-### 4) `vortex-dse-whitepaper`
+### 4) `vortex-dse-whitepaper` (superseded)
 
-- **Focus:** research narrative, architecture intuition, and key claims.
+- **Status:** archived. Its central claim (τ_min = 2×RTT as a physical lower bound) is withdrawn; see where-coordination-goes.
+- **Focus:** earlier research narrative and architecture intuition.
 - **Use it for:** terminology and threat/assumption context before reading specs/proofs.
 - **Then continue to:** [vortex-dse-cslot-spec](https://github.com/vasilisnasopoulos/vortex-dse-cslot-spec) and [vortex-dse-cslot-proofs](https://github.com/vasilisnasopoulos/vortex-dse-cslot-proofs)
 - **Citation guidance:** see the whitepaper repo for canonical citation text and versioning.
