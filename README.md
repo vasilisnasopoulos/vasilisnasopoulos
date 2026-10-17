@@ -162,4 +162,4 @@ Silence Theorem → C-slot Spec → C-slot Proofs → Merkle Agreement
 
 ## 🔖 Topics
 
-`formal-methods` · `tla+` · `tlaps` · `tlc` · `apalache` · `distributed-systems` · `consensus`
+`distributed-systems` · `consensus` · `tla+` · `tlaps` · `tlc` · `apalache`
