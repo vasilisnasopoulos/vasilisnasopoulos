@@ -8,7 +8,7 @@ This profile is the public landing page for Vortex DSE research artifacts: the S
 [![TLC checks](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-tlc.yml/badge.svg)](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-tlc.yml)
 [![Apalache checks](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-apalache.yml/badge.svg)](https://github.com/vasilisnasopoulos/vasilisnasopoulos/actions/workflows/verify-apalache.yml)
 [![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![Topics](https://img.shields.io/badge/topics-formal--methods%20%C2%B7%20tla%2B%20%C2%B7%20consensus-6f42c1)](#-topics)
+[![Topics](https://img.shields.io/badge/topics-distributed%20systems%20%C2%B7%20coordination%20%C2%B7%20leaderless-6f42c1)](#-topics)
 [![Release notes](https://img.shields.io/badge/release-v1.0.0-orange)](RELEASE_NOTES.md)
 
 ## 🚀 What is Vortex DSE?
