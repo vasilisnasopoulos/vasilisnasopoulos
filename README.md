@@ -1,6 +1,6 @@
 # 👋 Vasilis Nasopoulos — Vortex DSE
 
-I work on **formal methods**, **TLA+**, **TLAPS machine-checked proofs**, and correctness-first **distributed systems / consensus**.
+
 
 This profile is the public landing page for Vortex DSE research artifacts: the Silence Theorem, executable specifications, deductive proofs, agreement models, and demonstrations. The public repositories are related components and evidence slices, not a single publicly composed end-to-end proof of the private production engine.
 
