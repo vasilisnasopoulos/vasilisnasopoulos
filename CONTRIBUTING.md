@@ -1,6 +1,6 @@
 # Contributing to Vortex DSE Formal Repositories
 
-Thanks for your interest in the Vortex DSE public formal-methods stack.
+Thanks for your interest in the Vortex DSE public repositories.
 
 ## Best first contributions
 

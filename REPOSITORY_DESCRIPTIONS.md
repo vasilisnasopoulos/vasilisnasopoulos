@@ -3,7 +3,7 @@
 Copy/paste candidates for each repository description field on GitHub.
 
 - **vasilisnasopoulos**  
-  Formal methods hub for Vortex DSE: TLA+ specs, TLAPS proofs, TLC/Apalache checks, and consensus research.
+  Vortex DSE: leaderless ordering and coordination. Correctness checked with TLA+ specs, TLAPS proofs and TLC/Apalache.
 
 - **vortex-dse-cslot-proofs**  
   TLAPS proofs for Vortex DSE C-slot admission safety in deterministic consensus systems.

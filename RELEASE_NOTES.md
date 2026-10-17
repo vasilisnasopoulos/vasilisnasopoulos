@@ -2,7 +2,7 @@
 
 ## v1.0.0 — Public formal baseline
 
-This milestone packages the public Vortex DSE formal-methods artifacts into a clearer newcomer path.
+This milestone packages the public Vortex DSE artifacts (specs, proofs, measurements) into a clearer newcomer path.
 
 ### Highlights
 
